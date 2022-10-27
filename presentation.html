@@ -39,17 +39,17 @@ class: center, middle, inverse, title-slide
 class: center, middle
 
 ## Our Research Question:
-## How does the different varibles of the passangers on the Titanic affect their survial rates?
+## How does the different variables of the passengers on the Titanic affect their survival rates?
 
 ---
 
 class: inverse, center, middle
 
-# Data Information and Our Thoughts on what we think the data will show
+# Data Information and Our Thoughts on What We Think the Data Will Show
 
 ---
 
-# Where did we aquire the data 
+# Where Did we Aquire the Data 
 - Firstly we searched through the links provided on the IDS workshop page
 
 - We then investigated the different link looking through the different data sets 
@@ -68,7 +68,7 @@ class: inverse, middle, center
 
 ---
 
-# The different varibles
+# The different variables
 
 - survival (1=Yes; 0=No)
 - pclass = Ticket Class (1=first class; 2=second class; 3=third class)
@@ -83,7 +83,7 @@ class: inverse, middle, center
 
 ---
 
-# Varibles Notes
+# Variables Notes
 
 - age:
 fractional if &lt;1
@@ -112,31 +112,6 @@ for nannies, parch=0
 
 ---
 
-glimpse(titanic)
-
----
-
-# Exploratory Data Analysis
-
-What is Exploratory Data Analysis?
-Exploratory Data Analysis, also known as Data Exploration, is a step in the Data Analysis Process, where a number of techniques are used to better understand the dataset being used.
-
-‘Understanding the dataset’ can refer to a number of things including but not limited to:
-1) Extracting important variables and leaving behind useless variables
-2) Identifying outliers, missing values, or human error
-3) Understanding the relationships, or lack of, between variables
-Ultimately, maximizing your insights of a dataset and minimizing potential error that may occur later in the process.
-
----
-
-Within the dataset, titanic, some variables are useless such as "Cabin" and "Ticket" as these variables produce no important information that can be analaysed. They can not be summarised or made into a useful visualisation. 
-
-Variables such as "Age", "Pclass", "Sex", "Survived" and Fare are the most useful vairables as they can be used in both an analytical and predictive way. These variables can be used to identify trends while they can also provide more relevant insights by visualising, transforming and modelling the data. In the dataset, there are numerous missing values such as "Age". This could be due to the failure in observations or that the ages simply where never known.
-
-Through analysing the dataset as a whole and its variables individually, we will gain a better insight of the data through understanding relationships between variables. From quick glance, it is already evident that the passengers who survived where based on their sex, age and class. This will be further explored throughout the presentation.
-
----
-
 
 ```r
 titanic &lt;- read_csv("/Users/kristen/Documents/HW/Project/Datasets/titanic.csv") 
@@ -152,6 +127,71 @@ titanic &lt;- read_csv("/Users/kristen/Documents/HW/Project/Datasets/titanic.csv
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
+
+---
+
+
+```r
+glimpse(titanic)
+```
+
+```
+## Rows: 891
+## Columns: 12
+## $ PassengerId &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,…
+## $ Survived    &lt;dbl&gt; 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1…
+## $ Pclass      &lt;dbl&gt; 3, 1, 3, 1, 3, 3, 1, 3, 3, 2, 3, 1, 3, 3, 3, 2, 3, 2, 3, 3…
+## $ Name        &lt;chr&gt; "Braund, Mr. Owen Harris", "Cumings, Mrs. John Bradley (Fl…
+## $ Sex         &lt;chr&gt; "male", "female", "female", "female", "male", "male", "mal…
+## $ Age         &lt;dbl&gt; 22, 38, 26, 35, 35, NA, 54, 2, 27, 14, 4, 58, 20, 39, 14, …
+## $ SibSp       &lt;dbl&gt; 1, 1, 0, 1, 0, 0, 0, 3, 0, 1, 1, 0, 0, 1, 0, 0, 4, 0, 1, 0…
+## $ Parch       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 5, 0, 0, 1, 0, 0, 0…
+## $ Ticket      &lt;chr&gt; "A/5 21171", "PC 17599", "STON/O2. 3101282", "113803", "37…
+## $ Fare        &lt;dbl&gt; 7.2500, 71.2833, 7.9250, 53.1000, 8.0500, 8.4583, 51.8625,…
+## $ Cabin       &lt;chr&gt; NA, "C85", NA, "C123", NA, NA, "E46", NA, NA, NA, "G6", "C…
+## $ Embarked    &lt;chr&gt; "S", "C", "S", "S", "S", "Q", "S", "S", "S", "C", "S", "S"…
+```
+
+---
+
+# Any statistics that you believe will be useful in answering your question(s)?
+
+BAR PLOT - number of people survived against factor (sex, class, age)
+- each factor have its own subset
+- allow us to compare the data (does class plays a role in the survival of the passengers? or age or sex)
+- if they do, then which factor contributes the most (face wrap? // stacked bar chart // multiple axis chart)
+
+Pie chart, line plot, box plot
+
+---
+
+# Exploratory Data Analysis
+
+What is Exploratory Data Analysis?
+Exploratory Data Analysis, also known as Data Exploration, is a step in the Data Analysis Process, where a number of techniques are used to better understand the dataset being used.
+
+‘Understanding the dataset’ can refer to a number of things including but not limited to:
+
+1) Extracting important variables and leaving behind useless variables
+
+2) Identifying outliers, missing values, or human error
+
+3) Understanding the relationships, or lack of, between variables
+
+Ultimately, maximizing your insights of a dataset and minimizing potential error that may occur later in the process.
+
+---
+
+class: middle
+
+Within the dataset, titanic, some variables are useless such as "Cabin" and "Ticket" as these variables produce no important information that can be analaysed. They can not be summarised or made into a useful visualisation. 
+
+Variables such as "Age", "Pclass", "Sex", "Survived" and Fare are the most useful vairables as they can be used in both an analytical and predictive way. These variables can be used to identify trends while they can also provide more relevant insights by visualising, transforming and modelling the data. In the dataset, there are numerous missing values such as "Age". This could be due to the failure in observations or that the ages simply where never known.
+
+Through analysing the dataset as a whole and its variables individually, we will gain a better insight of the data through understanding relationships between variables. From quick glance, it is already evident that the passengers who survived where based on their sex, age and class. This will be further explored throughout the presentation.
+
+---
+
 
 ```r
 my_data &lt;- as_tibble(titanic)
@@ -174,6 +214,8 @@ my_data
 ## 10          10        1      2 Nasse… fema…    14     1     0 237736 30.1  &lt;NA&gt; 
 ## # … with 881 more rows, and 1 more variable: Embarked &lt;chr&gt;
 ```
+
+---
 
 
 ```r
@@ -201,6 +243,8 @@ my_data %&gt;%
 ## 1        2.31
 ```
 
+---
+
 
 ```r
 my_data %&gt;% 
@@ -217,6 +261,8 @@ my_data %&gt;%
 Through using summary statistics, the dataset is summarised and information is provided. It outlines something about the values in the dataset such as the mean of specific variables (as shown above).
 
 It simplifies the data in order to quickly identify the information needed while also allowing us to identify what looks 'normal' and what doesn't. This outlines potential anomalies. The summary statistics are filled with information and insights extracted from the table. 
+
+---
 
 
 ```r
@@ -246,29 +292,11 @@ group_by(Pclass, Survived) %&gt;%
 
 Within the summary statistic above, we can see that the variables "Pclass" and "Survived" were grouped in order to find how many people survived based on their class. The dataset is broken down in a way that is easy to read but it is also an efficient way to gather the required information. Through using the function 'summarise(n = n())' the values for who survived is automatically calculated which therefore saves having to count manually.
 
+---
+
 
 ```r
-na.omit(titanic)
-```
-
-```
-## # A tibble: 183 × 12
-##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare Cabin
-##          &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
-##  1           2        1      1 Cumin… fema…    38     1     0 PC 17…  71.3 C85  
-##  2           4        1      1 Futre… fema…    35     1     0 113803  53.1 C123 
-##  3           7        0      1 McCar… male     54     0     0 17463   51.9 E46  
-##  4          11        1      3 Sands… fema…     4     1     1 PP 95…  16.7 G6   
-##  5          12        1      1 Bonne… fema…    58     0     0 113783  26.6 C103 
-##  6          22        1      2 Beesl… male     34     0     0 248698  13   D56  
-##  7          24        1      1 Slope… male     28     0     0 113788  35.5 A6   
-##  8          28        0      1 Fortu… male     19     3     2 19950  263   C23 …
-##  9          53        1      1 Harpe… fema…    49     1     0 PC 17…  76.7 D33  
-## 10          55        0      1 Ostby… male     65     0     1 113509  62.0 B30  
-## # … with 173 more rows, and 1 more variable: Embarked &lt;chr&gt;
-```
-
-```r
+na.omit(titanic) %&gt;%
   summarise(titanic,
             min_Age = min(Age),
             max_Age = max(Age),
@@ -277,25 +305,30 @@ na.omit(titanic)
 ```
 
 ```
-## # A tibble: 1 × 4
-##   min_Age max_Age min_Fare max_Fare
-##     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-## 1      NA      NA        0     512.
+## # A tibble: 891 × 16
+##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare Cabin
+##          &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+##  1           1        0      3 Braun… male     22     1     0 A/5 2…  7.25 &lt;NA&gt; 
+##  2           2        1      1 Cumin… fema…    38     1     0 PC 17… 71.3  C85  
+##  3           3        1      3 Heikk… fema…    26     0     0 STON/…  7.92 &lt;NA&gt; 
+##  4           4        1      1 Futre… fema…    35     1     0 113803 53.1  C123 
+##  5           5        0      3 Allen… male     35     0     0 373450  8.05 &lt;NA&gt; 
+##  6           6        0      3 Moran… male     NA     0     0 330877  8.46 &lt;NA&gt; 
+##  7           7        0      1 McCar… male     54     0     0 17463  51.9  E46  
+##  8           8        0      3 Palss… male      2     3     1 349909 21.1  &lt;NA&gt; 
+##  9           9        1      3 Johns… fema…    27     0     2 347742 11.1  &lt;NA&gt; 
+## 10          10        1      2 Nasse… fema…    14     1     0 237736 30.1  &lt;NA&gt; 
+## # … with 881 more rows, and 5 more variables: Embarked &lt;chr&gt;, min_Age &lt;dbl&gt;,
+## #   max_Age &lt;dbl&gt;, min_Fare &lt;dbl&gt;, max_Fare &lt;dbl&gt;
 ```
 
 ---
 
+&lt;img src="presentation_files/figure-html/unnamed-chunk-10-1.png" width="100%" /&gt;
 
-```r
-ggplot(titanic, aes(y = Pclass,
-                    fill = Survived)) +
-  geom_bar(fill = "lightblue", colour = "Blue") +
-  labs(x = "Number of Passengers who Survived",
-       y = "Class",
-       title = "The Number of Passengers who Survived Based on Class")
-```
+---
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="80%" /&gt;
+class: middle, center
 
 A bar chart is used when you want to show a distribution of data points or perform a comparison of metric values across different subgroups of your data. From a bar chart, we can see which groups are highest or most common, and how other groups compare against the others. Since this is a fairly common task, bar charts are a fairly ubiquitous chart type.
 
@@ -303,63 +336,49 @@ The data represents the number of passengers who survived based on their class. 
 
 ---
 
+&lt;img src="presentation_files/figure-html/unnamed-chunk-11-1.png" width="100%" /&gt;
 
-```r
-ggplot(data = titanic,
-       mapping = aes(x = Survived, y = Age)) +
-  geom_boxplot () +
-  facet_wrap(~Pclass) +
-   labs(x = "Number of Passengers who Survived",
-        title = "The Number of Passengers who Survived Based on Class and Age")
-```
+---
 
-```
-## Warning: Continuous x aesthetic -- did you forget aes(group=...)?
-```
-
-```
-## Warning: Removed 177 rows containing non-finite values (stat_boxplot).
-```
-
-&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="80%" /&gt;
+class: middle, center
 
 The data represents the number of passengers who survived based on class and age. The variable "Pclass" is split into a readable graph by the function facet wrap, splitting the data on the vertical grid to distinguish between each class. There is a direct relation between class, age and who survived which forms the structure of the graph e.g. the age of those who survived in first class. The graph is in the form of a boxplot which showcases the maximum and minimum age of the survivors as well as the median and the outliers showcasing unique ages. The boxplot is easy to read and follow therefore valuing the respects of visualisation.
 
 ---
 
+&lt;img src="presentation_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
 
-```r
-ggplot(titanic, aes(x = Age)) +
-  geom_density() +
-  labs(x = "Age", title = "Passengers who Survived based on Age and Sex") +
-  facet_wrap(~Sex, nrow = 2)
-```
+---
 
-```
-## Warning: Removed 177 rows containing non-finite values (stat_density).
-```
-
-&lt;img src="presentation_files/figure-html/unnamed-chunk-10-1.png" width="80%" /&gt;
+class: middle, center
 
 The data represents the number of passengers who survived based on age and sex. Facet wrap splits the data on the into two rows to distinguish between each sex. There is a direct relation between age, sex and who survived which forms the structure of the graph e.g. the sex and age of those who survived. The graph is in the form of a densityplot which showcases clearly each variable and its trends. 
 
 ---
 
+&lt;img src="presentation_files/figure-html/unnamed-chunk-13-1.png" width="100%" /&gt;
 
-```r
-ggplot(titanic, aes(y = Pclass)) +
-  facet_grid(~Sex) +
-  geom_bar(fill = "lightblue", color = "blue") +
-  labs(x = "Number of Passengers who Survived",
-       y = "Class",
-       title = "The Number of Passengers who Survived Based on Class and Sex")
-```
+---
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-11-1.png" width="80%" /&gt;
+class: middle, center
 
 The data represents the number of passengers who survived based on class and sex. Facet wrap splits the data on the vertical grid to distinguish between each sex. There is a direct relation between class, sex and who survived which forms the structure of the graph e.g. the sex of those who survived in third class. The graph is in the form of a barplot which outlines clearly each variable and its values in a clear, user-friendly way. Like the boxplot, the barplot is easy to read and follow therefore valuing the respects of visualisation.
 
 ---
+
+# What results from these statistics are needed to support your hypothesized answer?
+
+- no hypothesized answer currently
+- but if there is eg: class does play a role in the passengers' survival rate, then the data visualization should show a significant difference in the number of ppl survived per class
+- another example: women and children were prioritized during the titanic rescue mission, then we should see in the data that the number of women and children will be significantly more than the rest
+
+---
+class: inverse, middle, center
+
+# Any Questions?
+
+---
+
 # Code
 
 
@@ -399,7 +418,7 @@ ggplot(titanic, mapping =  aes(x = age,
 - goes here
 ]
 .pull-right[
-&lt;img src="presentation_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-14-1.png" width="100%" /&gt;
 ]
 
 ---
