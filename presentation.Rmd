@@ -1,6 +1,6 @@
 ---
 title: "Titanic Death Rates"
-subtitle: "Presentation subtitle (if any)"
+subtitle:
 author: "Cade, Zety, Kristen and Andrew"
 institute: "University of Edinburgh"
 date: "`r Sys.Date()`"
@@ -34,65 +34,66 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 
 ```{r include=FALSE}
 style_xaringan(
-  title_slide_background_image = "img/confetti.jpg"
+  title_slide_background_image = "img/Titanic.jpg"
 )
 ```
 
 class: center, middle
 
-## A statement of the overall goal / research question
+## Our Research Question:
+## How does the different varibles of the passangers on the Titanic affect their survial rates?
 
 ---
 
 class: inverse, center, middle
 
-# Section title
+# Data Information and Our Thoughts on what we think the data will show
 
 ---
 
-# Hello World
+# Where did we aquire the data 
+- Firstly we searched through the links provided on the IDS workshop page
 
-- Click the `Knit` button to compile your presentation
+- We then investigated the different link looking through the different data sets 
 
-- Make sure to commit and push all resulting files to your GitHub repo
+- We then found our data set by going through https://github.com/awesomedata/awesome-public-datasets
+
+- From this we selected Titanic Survival Data Set (https://www.kaggle.com/c/titanic/data)
+
+- From this we downloaded the Data into R so we begin working on it.
 
 ---
 
 class: inverse, middle, center
 
-# Using xaringan
+# What are the different variables?
 
 ---
 
-# xaringan
+# The different varibles
 
-- The presentation is created using the `xaringan` package
-
-- Use `---` to separate slides and `--` for incremental builds
-
---
-
-- Like this
+- Survival, where 1=Yes and 0=No
+- Ticket Class 1=first class, 2=second class and 3=third class
+- Sex(gender)
+- Age in years
+- Any siblings / spouses aboard the Titanic
+- Any parents / children aboard the Titanic
+- Ticket number
+- Passenger fare
+- Cabin number
+- Port of Embarkation, C = Cherbourg, Q = Queenstown, S = Southampton
 
 ---
 
-# Layouts
+# Background on the Titanic and Our Thoughts
 
-You can use plain text
+-On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone on-board, resulting in the death of 1502 out of 2224 passengers and crew. Resulting in a 67.5% survival rate out of the passengers 
 
-- or bullet points
+-While there was some element of luck involved in surviving, it seems some groups of people were more likely to survive than others.
 
-.pull-left[
-or text in two columns $^*$
-]
-.pull-right[
-- like
-- this
-]
+-We believe that people with a younger age and higher class will have a higher survival rate of surviving the Titanic ship wreck.
 
-.footnote[
-[*] And add footnotes
-]
+-We think this as the younger age means they should be able to deal with the harsh conditions better and them being better class means they would be located in better structurally built part of the ship.
 
 ---
 
