@@ -72,16 +72,31 @@ class: inverse, middle, center
 
 # The different varibles
 
-- Survival, where 1=Yes and 0=No
-- Ticket Class 1=first class, 2=second class and 3=third class
-- Sex(gender)
-- Age in years
-- Any siblings / spouses aboard the Titanic
-- Any parents / children aboard the Titanic
-- Ticket number
-- Passenger fare
-- Cabin number
-- Port of Embarkation, C = Cherbourg, Q = Queenstown, S = Southampton
+- survival (1=Yes; 0=No)
+- pclass = Ticket Class (1=first class; 2=second class; 3=third class)
+- sex
+- age = Age in years
+- sibsp = number of siblings / spouses aboard the Titanic
+- parch = number of parents / children aboard the Titanic
+- ticket = Ticket number
+- fare = Passenger fare
+- cabin = Cabin number
+- embarked = Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton)
+
+---
+
+# Varibles Notes
+
+- age:
+fractional if <1
+if estimated in the form of xx.5
+- sibsp:
+sibling = brother/sister/stepbrother/stepsister
+spouse = husband/wife (mistresses/fiancés ignored)
+- parch: 
+parent = mother/father
+child = daughter/son/stepdaughter/stepson
+for nannies, parch=0
 
 ---
 
@@ -91,9 +106,15 @@ class: inverse, middle, center
 
 -While there was some element of luck involved in surviving, it seems some groups of people were more likely to survive than others.
 
--We believe that people with a younger age and higher class will have a higher survival rate of surviving the Titanic ship wreck.
+-We believe that people who were female, with a younger age and higher class will have a higher survival rate of surviving the Titanic ship wreck.
 
 -We think this as the younger age means they should be able to deal with the harsh conditions better and them being better class means they would be located in better structurally built part of the ship.
+
+-Being a female, we think they'd get priority when boarding the lifeboats therefore having a higher chance of survival  
+
+---
+
+glimpse(titanic)
 
 ---
 
@@ -128,6 +149,15 @@ ggplot(data = iris_modified, mapping = aes(x = Sepal.Width, y = Sepal.Length, co
 ---
 
 ## Plot and text
+
+ggplot(titanic, mapping =  aes(x = age, 
+  fill = sex) +
+  geom_bar()
+  labs(
+  x= age
+  y= number 
+  title = Age and Sex of Passengers on the Titanic
+)
 
 .pull-left[
 - Some text
