@@ -205,17 +205,6 @@ Within the summary statistic above, we can see that the variables "Pclass" and "
 
 ---
 
-```{r}
-na.omit(titanic) %>%
-  summarise(titanic,
-            min_Age = min(Age),
-            max_Age = max(Age),
-            min_Fare = min(Fare),
-            max_Fare = max(Fare))
-```
-
----
-
 ```{r warning=FALSE, out.width="100%", fig.width=6, echo=FALSE}
 ggplot(titanic, aes(y = Pclass,
                     fill = Survived)) +
@@ -395,6 +384,17 @@ Limitations:
 1. There should not be spaces after the opening `$` or before the closing `$`.
 
 1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
+
+---
+
+```{r}
+na.omit(titanic) %>%
+  summarise(titanic,
+            min_Age = min(Age),
+            max_Age = max(Age),
+            min_Fare = min(Fare),
+            max_Fare = max(Fare))
+```
 
 ---
 
